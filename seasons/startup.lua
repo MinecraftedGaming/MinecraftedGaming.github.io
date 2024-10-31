@@ -1,0 +1,5 @@
+print("this computer is setup for season display")
+print("to stop season display holt ctrl+t")
+print("to uninstall run 'uninstallSeason'")
+local id = multishell.launch({}, "season.lua")
+multishell.setTitle(id, "season")
