@@ -11,7 +11,7 @@ end
 
 --generate the card details
 CNUM = "2064 " .. math.random(1000, 9999) .. " " .. math.random(1000, 9999) .. " " .. math.random(1000, 9999)
-EXP = os.day("ingame") + 100
+EXP = os.date("%D")
 CVV = math.random(100, 999)
 
 --check for repeated card number
@@ -23,7 +23,7 @@ if fs.exists("cards/" .. CNUM) == false then
     file.write(CNUM .. " / " .. EXP .. " / " .. CVV .. " / " .. Owner)
     file.close()
     local file = fs.open("cards/" .. CNUM .. "/log.hlx", "a")
-    file.writeLine("(" .. os.day("ingame") .. ") - card created")
+    file.writeLine("(" .. os.date("%D") .. ") - card created")
     file.close()
     print("new card created")
     print(CNUM)
