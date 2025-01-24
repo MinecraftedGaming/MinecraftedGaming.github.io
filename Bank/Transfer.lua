@@ -9,6 +9,8 @@ print("enter recipient card number:")
 local C2 = read()
 print("enter amount:")
 local amount = read()
+print("enter memo:")
+local memo = read()
 
 local file = fs.open("cards/" .. C1 .. "/CB.hlx", "r")
 local C1amount = file.readAll()
@@ -22,11 +24,11 @@ if fs.exists("cards/" .. C1) then
             if tonumber(amount) >= 1 then
                 local file = fs.open("cards/" .. C1 .. "/log.hlx", "a")
                 file.writeLine("(" ..
-                os.day("ingame") .. ") - transfered $" .. amount .. " to " .. C2 .. " by " .. os.getComputerID())
+                os.date("%D") .. ") - transfered $" .. amount .. " to " .. C2 .. " by " .. os.getComputerID() .. " Memo(" .. memo .. ")")
                 file.close()
                 local file = fs.open("cards/" .. C2 .. "/log.hlx", "a")
                 file.writeLine("(" ..
-                os.day("ingame") .. ") - received $" .. amount .. " from " .. C1 .. " by " .. os.getComputerID())
+                os.date("%D") .. ") - received $" .. amount .. " from " .. C1 .. " by " .. os.getComputerID() .. " Memo(" .. memo .. ")")
                 file.close()
                 local file = fs.open("cards/" .. C1 .. "/CB.hlx", "w")
                 file.write(C1amount - amount)
@@ -34,7 +36,7 @@ if fs.exists("cards/" .. C1) then
                 local file = fs.open("cards/" .. C2 .. "/CB.hlx", "w")
                 file.write(C2amount + amount)
                 file.close()
-                print("transfered $" .. amount .. " to " .. C2 .. " from " .. C1)
+                print("transfered $" .. amount .. " to " .. C2 .. " from " .. C1 .. " Memo(" .. memo .. ")")
             else
                 print("amount must be greater than 0")
             end
