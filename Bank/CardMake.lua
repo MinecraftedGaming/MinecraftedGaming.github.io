@@ -12,7 +12,7 @@ end
 --generate the card details
 print("enter custom card number")
 CNUM = read()
-print("enter custom card EXP. current date: " .. os.day("ingame"))
+print("enter custom card EXP. current date: " .. os.date("%D"))
 EXP = read()
 print("enter custom CVV")
 CVV = read()
@@ -29,7 +29,7 @@ if fs.exists("cards/" .. CNUM) == false then
     file.write("0")
     file.close()
     local file = fs.open("cards/" .. CNUM .. "/log.hlx", "a")
-    file.writeLine("(" .. os.day("ingame") .. ") - card created")
+    file.writeLine("(" .. os.date("%D") .. ") - card created")
     file.close()
     print("new card created")
 else
