@@ -12,7 +12,7 @@ if fs.exists("cards/" .. card) == true then
     file.write(bal)
     file.close()
     local file = fs.open("cards/" .. card .. "/log.hlx", "a")
-    file.writeLine("(" .. os.date("%D") .. ") - balance set to $" .. bal .. " by SetBal on " .. os.getComputerID())
+    file.writeLine("(" .. os.day("ingame") .. ") - balance set to $" .. bal .. " by SetBal on " .. os.getComputerID())
     file.close()
 else
     print("card not found")
