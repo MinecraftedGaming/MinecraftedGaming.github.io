@@ -24,11 +24,13 @@ if fs.exists("cards/" .. C1) then
             if tonumber(amount) >= 1 then
                 local file = fs.open("cards/" .. C1 .. "/log.hlx", "a")
                 file.writeLine("(" ..
-                os.date("%D") .. ") - transfered $" .. amount .. " to " .. C2 .. " by " .. os.getComputerID() .. " Memo(" .. memo .. ")")
+                os.date("%D") ..
+                ") - transfered $" .. amount .. " to " .. C2 .. " by " .. os.getComputerID() .. " Memo(" .. memo .. ")")
                 file.close()
                 local file = fs.open("cards/" .. C2 .. "/log.hlx", "a")
                 file.writeLine("(" ..
-                os.date("%D") .. ") - received $" .. amount .. " from " .. C1 .. " by " .. os.getComputerID() .. " Memo(" .. memo .. ")")
+                os.date("%D") ..
+                ") - received $" .. amount .. " from " .. C1 .. " by " .. os.getComputerID() .. " Memo(" .. memo .. ")")
                 file.close()
                 local file = fs.open("cards/" .. C1 .. "/CB.hlx", "w")
                 file.write(C1amount - amount)
