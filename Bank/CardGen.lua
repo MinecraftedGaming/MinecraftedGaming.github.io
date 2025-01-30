@@ -5,13 +5,13 @@ local CVV = 0
 
 --check if new cards are allowed
 if settings.get("card.option.1") == false then
-    print ("new cards are not allowed at this time")
+    print("new cards are not allowed at this time")
     goto stop
 end
 
 --generate the card details
 CNUM = "2064 " .. math.random(1000, 9999) .. " " .. math.random(1000, 9999) .. " " .. math.random(1000, 9999)
-EXP = os.date("%D")
+EXP = os.day("ingame") + 100
 CVV = math.random(100, 999)
 
 --check for repeated card number
@@ -23,7 +23,7 @@ if fs.exists("cards/" .. CNUM) == false then
     file.write(CNUM .. " / " .. EXP .. " / " .. CVV .. " / " .. Owner)
     file.close()
     local file = fs.open("cards/" .. CNUM .. "/log.hlx", "a")
-    file.writeLine("(" .. os.date("%D") .. ") - card created")
+    file.writeLine("(" .. os.day("ingame") .. ") - card created")
     file.close()
     print("new card created")
     print(CNUM)
