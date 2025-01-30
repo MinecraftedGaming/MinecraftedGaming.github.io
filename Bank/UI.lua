@@ -14,6 +14,14 @@ local b2io = false
 local b2w = b1txt:len() + 2
 local b2a = tostring(settings.get("card.option.2"))
 
+local b3x = 29
+local b3y = 2
+local b3h = 3
+local b3txt = "Debt"
+local b3io = false
+local b3w = b1txt:len() + 2
+local b3a = tostring(settings.get("card.option.3"))
+
 local ontxt = "on"
 local offtxt = "off"
 
@@ -32,7 +40,7 @@ function b1f()
     term.write(b1txt)
     b1a = "false"
     settings.set("card.option.1", false)
-    settings.save() 
+    settings.save()
 end
 
 function b1t()
@@ -80,6 +88,36 @@ function b2t()
     settings.save()
 end
 
+function b3f()
+    paintutils.drawFilledBox(b3x, b3y, b3x + b3w - 1, b3y + b3h - 1, colors.gray)
+    if b3io == true then
+        b3txt = offtxt
+    end
+    b3w = b3txt:len() + 2
+    paintutils.drawFilledBox(b3x, b3y, b3x + b3w - 1, b3y + b3h - 1, colors.red)
+    term.setBackgroundColor(colors.red)
+    term.setCursorPos(b3x + 1, b3y + (b3h / 2))
+    term.write(b3txt)
+    b3a = "false"
+    settings.set("card.option.3", false)
+    settings.save()
+end
+
+function b3t()
+    paintutils.drawFilledBox(b3x, b3y, b3x + b3w - 1, b3y + b3h - 1, colors.gray)
+    if b3io == true then
+        b3txt = ontxt
+    end
+    b3w = b3txt:len() + 2
+    paintutils.drawFilledBox(b3x, b3y, b3x + b3w - 1, b3y + b3h - 1, colors.green)
+    term.setBackgroundColor(colors.green)
+    term.setCursorPos(b3x + 1, b3y + (b3h / 2))
+    term.write(b3txt)
+    b3a = "true"
+    settings.set("card.option.3", true)
+    settings.save()
+end
+
 if b1a == "true" then
     b1t()
 else
@@ -89,6 +127,11 @@ if b2a == "true" then
     b2t()
 else
     b2f()
+end
+if b3a == "true" then
+    b3t()
+else
+    b3f()
 end
 
 term.setCursorPos(43, 1)
@@ -120,8 +163,13 @@ while true do
             else
                 b2f()
             end
+        elseif x >= b3x and x <= b3x + b3w - 1 then
+            if b3a == "false" then
+                b3t()
+            else
+                b3f()
+            end
         end
-    else
     end
 end
 ::stop::
