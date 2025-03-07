@@ -38,7 +38,7 @@ if fs.exists("cards/" .. CNUM) == false then
     file.write("0")
     file.close()
     local file = fs.open("cards/" .. CNUM .. "/log.hlx", "a")
-    file.writeLine("(" .. os.day("ingame") .. ") - card created")
+    file.writeLine("(" .. os.day("local") .. ") - card created")
     file.close()
     print("new card created")
 else
