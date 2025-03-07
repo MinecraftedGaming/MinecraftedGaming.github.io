@@ -1,5 +1,5 @@
 if settings.get("bank.beta") == false then
-    printError("Bank UI is still in development and not ready for use")
+    printError("Bank UI is still in development and may still have issues")
     printError("enable beta features to use ui")
     printError("(this may cause things to break. use at own risk)")
     goto stop
