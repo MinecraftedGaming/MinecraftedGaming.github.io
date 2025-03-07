@@ -27,6 +27,8 @@ install("UI")
 print("")
 print("all files installed")
 clear(1)
+settings.set("bank.beta", false)
+settings.save()
 ::prompt::
 print("would you like to make your first card now")
 print("Y/N")
