@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPUVideo Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>GPUVideo Help</h1>
+    <p>This program plays video files using a GPU peripheral in ComputerCraft. It requires the video files to be hosted on a local server.</p>
+    <h2>Video server setup</h2>
+    <p>This is optimized to work with a webserver run through iis on windows. open windows search bar and search for "Turn Windows features on or off". look for "Internet Information Services" and enable it. once installed search for "iis" in windows search and open "Internet Information Services (IIS) Manager". once it is loaded you can then right click your computer name on the left and select "Add Website". set the physical path to the folder to where you want to store the frames of the video (this will use a lot of space). then set the port to 491. the name can be whatever you want and leave all other feilds as is. once you have done that click ok then open the folder you set in the path. now go to "https://www.onlineconverter.com/mp4-to-jpg" and upload your video file then click conver" once video is done converting you can click "download now" and download the zip to the folder and extract. now edit "video.lua" and set "frame" to the lowest number in the folder and "max frame" to the highest.</p>
+    <h2>Audio setup</h2>
+    <p>go to cloud convert to convert your mp4 to an mp3 file. then take your mp3 and put it through https://music.madefor.cc and save that in the computer as audio.dfpwm. to get to computer folder go to singleplayer world list. click edit on your world. then open folder. you should find a "computercraft" folder. open the computers folder inside of there and then open the id of the computer. this is where the audio file should be</p>
+    <h2>installation</h2>
+    <p>run 'wget run https://mg.madefor.cc/GPUVideo/Installer.lua'. installation done.</p>
+    <h2>Usage</h2>
+    <p>To start the video make sure you have both a GPU and Speaker peripheral connected. then run "play.lua" to start the video.</p>
+</html>
