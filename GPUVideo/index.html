@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPUVideo Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #222;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 1.5em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ccc;
+        }
+        code {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 2px 4px;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+        nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        nav li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GPUVideo Help</h1>
+    <p>GPUVideo allows you to play video files using a GPU peripheral in ComputerCraft. It requires the video files to be hosted on a local server.</p>
+
+    <nav>
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#video-server-setup">Video Server Setup</a></li>
+            <li><a href="#audio-setup">Audio Setup</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#usage">Usage</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="video-server-setup">Video Server Setup</h2>
+    <p>This setup is optimized for a web server running through IIS on Windows:</p>
+    <ol>
+        <li>Open the Windows search bar and search for <strong>"Turn Windows features on or off"</strong>.</li>
+        <li>Enable <strong>Internet Information Services (IIS)</strong> and install it.</li>
+        <li>Search for <strong>"IIS"</strong> and open <strong>Internet Information Services (IIS) Manager</strong>.</li>
+        <li>Right-click your computer name on the left and select <strong>Add Website</strong>.</li>
+        <li>Set the <strong>Physical Path</strong> to the folder where you will store the video frames (this may use a lot of space).</li>
+        <li>Set the <strong>Port</strong> to 491, choose a name, and leave all other fields as default. Click <strong>OK</strong>.</li>
+        <li>Open the folder you set in the path. Use <a href="https://www.onlineconverter.com/mp4-to-jpg" target="_blank">Online Converter</a> to convert your video to JPG frames. Upload your MP4, convert it, download the zip, and extract it to the folder.</li>
+        <li>Edit <code>video.lua</code> and set <code>frame</code> to the lowest number and <code>maxFrame</code> to the highest number in the folder.</li>
+    </ol>
+
+    <h2 id="audio-setup">Audio Setup</h2>
+    <ol>
+        <li>Convert your MP4 to an MP3 using <a href="https://cloudconvert.com" target="_blank">CloudConvert</a>.</li>
+        <li>Use <a href="https://music.madefor.cc" target="_blank">Music Converter</a> to convert the MP3 to <code>audio.dfpwm</code>.</li>
+        <li>Locate your ComputerCraft folder: go to your singleplayer world list, click <strong>Edit</strong> on your world, then <strong>Open Folder</strong>. Open the <strong>computercraft/computers/ID</strong> folder corresponding to your computer and place <code>audio.dfpwm</code> there.</li>
+    </ol>
+
+    <h2 id="installation">Installation</h2>
+    <pre>wget run https://mg.madefor.cc/GPUVideo/Installer.lua</pre>
+
+    <h2 id="usage">Usage</h2>
+    <p>Ensure you have both a GPU and a Speaker peripheral connected. Run <code>play.lua</code> to start the video.</p>
+</body>
+</html>
