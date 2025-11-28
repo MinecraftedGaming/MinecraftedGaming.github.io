@@ -1,8 +1,8 @@
-local frame = 00057600
-local maxframe = 00125669
+local frame = 0000
+local maxframe = 0000
 local framerate = 16
 
-local url = "http://localhost:491/s1_"
+local url = "http://localhost:491/"
 
 local gpu = peripheral.find("directgpu")
 
